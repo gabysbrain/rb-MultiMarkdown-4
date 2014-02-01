@@ -8,9 +8,12 @@ Gem::Specification.new do |spec|
   spec.version       = Multimarkdown::VERSION
   spec.authors       = ["Thomas Torsney-Weir"]
   spec.email         = ["torsneyt@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = <<-EOF 
+                       A Ruby extension that can process MultiMarkdown-formatted
+                       text using the multimarkdown command line tool.
+                       EOF
+  spec.summary       = %q{An interface to the multimarkdown command line tool}
+  spec.homepage      = "https://github.com/gabysbrain/rb-MultiMarkdown-4"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
