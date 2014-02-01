@@ -1,0 +1,3 @@
+[submodule "test/MMD-Test-Suite"]
+	path = test/MMD-Test-Suite
+	url = https://github.com/fletcher/MMD-Test-Suite
