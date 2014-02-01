@@ -6,7 +6,7 @@ EXT_MAP = {
   'fodt' => 'odf'
 }
 
-def build_tests(subdir, exclude_exts: [], ext_map: {}, options: [])
+def build_tests(subdir, use_tidy: false, exclude_exts: [], ext_map: {}, options: [])
   # merge the extension map
   ext_map = EXT_MAP.merge(ext_map)
 
@@ -20,7 +20,7 @@ def build_tests(subdir, exclude_exts: [], ext_map: {}, options: [])
       target_formats.select! {|tgt| tgt != ext}
     end
     target_formats.each do |target|
-      test_name = test_rawname.gsub(" ", "_").downcase
+      test_name = test_rawname.gsub(" ", "_").gsub(',', '').downcase
       test_name = "test_#{test_name}_to_#{target}"
       target_file = test_rawname + '.' + target
 
@@ -45,10 +45,9 @@ def build_tests(subdir, exclude_exts: [], ext_map: {}, options: [])
         target_txt.gsub!(/\s+\z/, "")
         parsed_src.gsub!(/\s+\z/, "")
         if use_tidy
-          target_txt.gsub!("'", "\\\\'")
-          parsed_src.gsub!("'", "\\\\'")
-          target_txt = `echo "#{target_txt}" | tidy --show-body-only 1 --quiet 1 --show-warnings 0`
-          parsed_src = `echo "#{parsed_src}" | tidy --show-body-only 1 --quiet 1 --show-warnings 0`
+          tidy_cmd = "tidy --show-body-only 1 --quiet 1 --show-warnings 0"
+          target_txt, status = Open3.capture2(tidy_cmd, :stdin_data=> target_txt)
+          parsed_src, status = Open3.capture2(tidy_cmd, :stdin_data=> parsed_src)
         end
 
         Dir.chdir(orig_dir)
