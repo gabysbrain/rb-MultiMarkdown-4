@@ -14,8 +14,9 @@ class BeamerSuiteTest < Test::Unit::TestCase
   Dir.glob("*.text").each do |source|
     test_rawname = File.basename(source, ".text")
     test_targets = Dir.glob(test_rawname+".*")
-    test_targets.select! {|fname| not fname.end_with?(".text")}
+    test_targets.select! {|fname| !fname.end_with?(".text")}
     target_formats = test_targets.map {|fn| File.extname(fn)[1..-1]}
+    target_formats.select! {|tgt| tgt != "html"} #mmd doesn't test this
     target_formats.each do |target|
       test_name = test_rawname.gsub(" ", "_").downcase
       test_name = "test_#{test_name}_to_#{target}"
