@@ -1,9 +1,9 @@
 
 require 'test/unit'
 
-require_relative 'beamer_test_suite'
-require_relative 'compat_test_suite'
-require_relative 'markdown_test_suite'
-require_relative 'memoir_test_suite'
-require_relative 'mmd_test_suite'
+require_relative 'test_beamer'
+require_relative 'test_compat'
+require_relative 'test_markdown'
+require_relative 'test_memoir'
+require_relative 'test_mmd'
 
