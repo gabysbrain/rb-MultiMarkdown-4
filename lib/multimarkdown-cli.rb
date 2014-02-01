@@ -1,4 +1,4 @@
-require "multimarkdown/version"
+require "multimarkdown-cli/version"
 
 # check that the command line tool is installed when requiring
 # from http://stackoverflow.com/questions/2108727/which-in-ruby-checking-if-program-exists-in-path-from-ruby
@@ -15,7 +15,7 @@ ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
 end
 raise "Can't find the multimarkdown command in your path.  Please install it" if !mmd_cmd_found
 
-module MultiMarkdown
+module MultiMarkdownCLI
   class Parser
     attr_reader :source
 

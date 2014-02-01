@@ -2,7 +2,7 @@
 $: << File.join(File.dirname(__FILE__), "../lib")
 
 require 'test/unit'
-require 'multimarkdown'
+require 'multimarkdown-cli'
 require_relative 'test_writer'
 
 class BeamerSuiteTest < Test::Unit::TestCase

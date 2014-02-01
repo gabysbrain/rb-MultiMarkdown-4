@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'multimarkdown/version'
+require 'multimarkdown-cli/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "multimarkdown"
-  spec.version       = Multimarkdown::VERSION
+  spec.name          = "multimarkdown-cli"
+  spec.version       = MultimarkdownCLI::VERSION
   spec.authors       = ["Thomas Torsney-Weir"]
   spec.email         = ["torsneyt@gmail.com"]
   spec.description   = <<-EOF 

@@ -37,7 +37,7 @@ def build_tests(subdir, use_tidy: false, exclude_exts: [], ext_map: {}, options:
         Dir.chdir(File.join(BASE_TEST_DIR, subdir))
         source_txt = File.read(source)
         target_txt = File.read(target_file)
-        parser = MultiMarkdown::Parser.new(source_txt, *options)
+        parser = MultiMarkdownCLI::Parser.new(source_txt, *options)
 
         parsed_src = parser.convert(target)
 
