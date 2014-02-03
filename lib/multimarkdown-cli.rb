@@ -13,7 +13,9 @@ ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
     end
   end
 end
-raise "Can't find the multimarkdown command in your path.  Please install it" if !mmd_cmd_found
+unless mmd_cmd_found
+  raise LoadError.new("Can't find the multimarkdown command in your path.  Please install it")
+end
 
 module MultiMarkdownCLI
   class Parser
