@@ -1,4 +1,5 @@
 require "multimarkdown-cli/version"
+require "multimarkdown-cli/tilt_plugin"
 
 module MultiMarkdownCLI
   def self._cli_installed?
