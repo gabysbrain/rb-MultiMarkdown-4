@@ -3,7 +3,7 @@ $: << File.join(File.dirname(__FILE__), "../lib")
 
 require 'test/unit'
 require 'multimarkdown-cli'
-require_relative 'test_writer'
+require_relative 'mmd_test_suite_builder'
 
 class MarkdownSuiteTest < Test::Unit::TestCase
   
