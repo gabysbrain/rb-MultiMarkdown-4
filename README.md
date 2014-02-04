@@ -1,6 +1,10 @@
 # Multimarkdown
 
-TODO: Write a gem description
+This is a Ruby interface to the 
+[multimarkdown](http://fletcherpenney.net/multimarkdown/) command line 
+client written by Fletcher T. Penney.  Multimarkdown is an extension to
+plain Markdown which adds support for things like tables, citations, and 
+footnotes to the original format.
 
 ## Installation
 
@@ -18,7 +22,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    >> require 'multimarkdown-cli'
+
+    >> puts MultiMarkdownCLI::Parser.new('Hello, world.').to_html
+    # <p>Hello, world.</p>
+
+    >> puts MultiMarkdownCLI::Parser.new('_Hello World!_').to_html
+    # <p><em>Hello World!</em></p>
 
 ## Contributing
 
