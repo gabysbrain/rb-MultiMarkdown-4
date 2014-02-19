@@ -27,7 +27,7 @@ module MultiMarkdownCLI
     end
   end
 
-  Tilt.register Template, 'multimarkdown'
+  Tilt.register Template, 'multimarkdown', 'mmd'
 end
 
 
